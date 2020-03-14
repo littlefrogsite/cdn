@@ -32,6 +32,9 @@ def getArgonRelease():
 
     with open('./argon_releases/updated_time.txt', 'w') as f:
             f.write(format(int(time.time())))
+    
+    with open('./argon_releases/latest.txt', 'w') as f:
+            f.write(format(version))
 
 if __name__ == "__main__":
     getArgonRelease()
