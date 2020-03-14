@@ -1,10 +1,10 @@
 import json
 import os
-from requests import get
+import time
+import requests
 from xml.dom.minidom import parse, parseString
 
 def getArgonRelease():
-    import requests
 
     res = requests.get('https://github.com/solstice23/argon-theme/releases.atom')
     res.encoding = 'utf-8'
@@ -29,6 +29,9 @@ def getArgonRelease():
         with open(filename, 'wb') as f:
             f.write(res.content)
         print("downloaded")
+
+    with open('./argon_releases/updated_time.txt', 'w') as f:
+            f.write(format(int(time.time())))
 
 if __name__ == "__main__":
     getArgonRelease()
